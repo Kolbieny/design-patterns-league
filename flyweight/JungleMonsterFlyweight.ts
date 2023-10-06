@@ -1,4 +1,4 @@
-type JungleMonsterType = {
+interface JungleMonsterType {
     side: string;
     health: Number;
     damage: Number;
