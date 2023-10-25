@@ -1,5 +1,8 @@
 interface CustomIterator<T> {}
 
+//Iterators may be declared in terms of factory method in a collection.
+//Core functionality of any iterator is to move back and forward in a scope of collection items.
+//It is possible to declare client service and pass iterator as argument to hide collection beneath.
 class ChatMessagesIterator implements CustomIterator<Message> {
     private messageCollection: ChatMessageCollection;
 
@@ -48,6 +51,7 @@ class Message {
 
 }
 
+//Collection may have Iterators declared itself as a factory method
 class ChatMessageCollection {
     private messages: Message[] = [];
 
@@ -60,6 +64,7 @@ class ChatMessageCollection {
     }
 }
 
+//In this example, Iterator is declared separately as a service
 function main() {
     const messages = new ChatMessageCollection();
     const message1 = new Message('Faker', 'gg es');

@@ -1,3 +1,4 @@
+//Context class contains reference to the State and manipulates it
 class Jayce {
     private state!: JayceState;
 
@@ -19,6 +20,8 @@ class Jayce {
     }
 }
 
+//State has a reference to context.
+//The reference helps with switching states
 abstract class JayceState {
     protected jayce: Jayce|undefined;
     public weapon: string;

@@ -3,6 +3,7 @@ interface MinionFactory {
     createSoldierMinion(): SoldierMinion;
 }
 
+//Implementing base method of the product is crucial
 interface MageMinion {
     throwSpell(): string
 }
@@ -12,6 +13,9 @@ interface SoldierMinion {
     hitBeforeMageMinion(mageMinion: MageMinion): string;
 }
 
+//Abstract factory creates different products but considered as related.
+//The variants of these products should not be related with the factory itself.
+//It can be imagined as a two-dimensional chart, where the dimensions create specific configuration of a product.
 class BlueSideMinionFactory implements MinionFactory {
     public createMageMinion(): MageMinion {
         return new BlueSideMageMinion();

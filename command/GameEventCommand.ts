@@ -1,3 +1,5 @@
+//There is an option to define executing commands as returning boolean.
+//The command can have its state and can be sensitive to the changes during execution.
 interface GameEventCommand {
     execute(): string;
 }
@@ -25,6 +27,7 @@ class BaronSpawnCommand implements GameEventCommand {
     }
 }
 
+//Commands can be extended
 class DrakeSpawnCommand implements GameEventCommand {
     private drake: Drake;
 
@@ -37,6 +40,7 @@ class DrakeSpawnCommand implements GameEventCommand {
     }
 }
 
+//Invoker-type class manages Commands
 class GameEventInvoker {
     private onGameTwoThirty: GameEventCommand|undefined;
     private onGameTwenty: GameEventCommand|undefined;

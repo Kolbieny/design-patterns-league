@@ -1,3 +1,4 @@
+//Target object of snapshot (Memento)
 class Inventory {
     private items: Array<string>;
 
@@ -23,6 +24,7 @@ class Inventory {
     }
 }
 
+//Memento collection
 class InventoryMemento {
     private readonly items: Array<string>;
 
@@ -35,6 +37,7 @@ class InventoryMemento {
     }
 }
 
+//Client service
 class InventoryManager {
     private inventoryMementos: InventoryMemento[] = [];
 

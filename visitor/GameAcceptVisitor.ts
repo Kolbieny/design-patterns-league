@@ -1,3 +1,4 @@
+//Components use method with Visitor as attribute to give him an access
 interface GameLoader {
     accept(manager: GameManagerVisitor): void;
 }
@@ -22,6 +23,7 @@ class TftGameLoader implements GameLoader {
     }
 }
 
+//Visitor are triggering component (passed as attribute) methods
 interface GameManagerVisitor {
     loadSummonersRiftGame(loader: SummonersRiftGameLoader): void;
     loadTftGame(loader: TftGameLoader): void;
@@ -55,16 +57,16 @@ function main() {
     const tftLoader = new TftGameLoader();
 
     console.log('I want to play TFT on my phone:');
-    mobile.loadTftGame(tftLoader);
+    tftLoader.accept(mobile);
 
     console.log('I want to play Wild Rift on my phone:');
-    mobile.loadSummonersRiftGame(summonersLoader);
+    summonersLoader.accept(mobile);
 
     console.log('I want to play TFT on my PC:');
-    desktop.loadTftGame(tftLoader);
+    tftLoader.accept(desktop);
 
     console.log('I want to play Summoners Rift on my PC:');
-    desktop.loadSummonersRiftGame(summonersLoader);
+    summonersLoader.accept(desktop);
 }
 
 main();

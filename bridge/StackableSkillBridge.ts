@@ -1,3 +1,5 @@
+//Abstract part has attribute which refers to the connected bridge.
+//Its duty is to define usable business methods
 class ChampionSkillset {
     protected stackableSkill: StackableSkillBridge;
 
@@ -11,6 +13,7 @@ class ChampionSkillset {
     }
 }
 
+//Optionally, instances could implement their own business methods
 class ToplanerSkillset extends ChampionSkillset {
     public getSkill(): string {
         const stackAmount = this.stackableSkill.getStackAmount();
@@ -30,7 +33,8 @@ class NasusQ implements StackableSkillBridge {
     }
 }
 
-
+//Interface defines methods which have different role from the abstract part
+//Casual Bridge interface contains sub-methods used for abstract part business methods
 interface StackableSkillBridge {
     getStackAmount(): string;
 }

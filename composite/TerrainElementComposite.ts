@@ -1,3 +1,4 @@
+//The abstract (could be interface) class defines common functionalities of each nested element (sub-class)
 abstract class TerrainElement {
     protected parent?: TerrainElement
 
@@ -27,6 +28,9 @@ class Tree extends TerrainElement {
     }
 }
 
+//Leaf (subclass) is considered as the last tier sub-element
+//Leaf is said to perform the main action.
+//The parent classes between the abstract and the leaf are often used only to delegate the task.
 class TreeWall extends Tree {
     protected z: Number;
 
@@ -40,6 +44,8 @@ class TreeWall extends Tree {
     }
 }
 
+//Composite extends the abstract and manage the leaves and other subclasses
+//Composite elements can be added or removed from the set
 class TerrainElementComposite extends TerrainElement {
     protected items: Tree[];
 
@@ -61,6 +67,7 @@ class TerrainElementComposite extends TerrainElement {
         }
     }
 
+    //Main tasks iterate through child elements and gather the results
     getPosition(x: Number, y: Number): void {
         this.items.forEach((item) => {item.getPosition(x, y)});
     }

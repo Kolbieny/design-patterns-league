@@ -1,3 +1,4 @@
+//Skeleton (Template) as abstract class
 abstract class GameLoaderTemplate {
     public buildGame(): void {
         this.loadMap();

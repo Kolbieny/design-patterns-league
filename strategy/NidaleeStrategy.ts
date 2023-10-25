@@ -1,3 +1,4 @@
+//Context class contains both constructor and set method to change strategy
 class Nidalee {
     private form: NidaleeStrategy;
 
@@ -13,6 +14,7 @@ class Nidalee {
         this.form.useQ();
     }
 }
+
 
 interface NidaleeStrategy {
     useQ(): void;

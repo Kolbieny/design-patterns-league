@@ -1,7 +1,9 @@
+//Subscriber interface
 interface ChatObserver {
     receiveMessage(message: Message): void;
 }
 
+//Subscriber instances react with public method
 class BlueSideChat implements ChatObserver {
     receiveMessage(message: Message): void {
         if (message instanceof AllChatMessage) {
@@ -32,8 +34,7 @@ interface Message {
     send(): void;
 }
 
-
-
+//Publisher class contains business logic needed to emit, bind and manage event flow
 abstract class ChatMessage implements Message {
     private content: string = "";
     private observers: ChatObserver[] = [];

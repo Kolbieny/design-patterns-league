@@ -1,6 +1,9 @@
 abstract class LeagueMapFactory {
+    //Factory class implements a factory method
     public abstract getShop(): Shop
 
+    //Factory class most of all implements business logic, which has a strict relation to the products
+    //The business logic creates at first products, then interacts with them
     public buyItem(): void
     {
         const item = this.getItem()
@@ -29,7 +32,7 @@ class HowlingAbyssShop implements Shop {
     }
 }
 
-
+//Factory class instances override the factory method
 class SummonersRift extends LeagueMapFactory {
     public getShop(): Shop {
         return new SummonersRiftShop();

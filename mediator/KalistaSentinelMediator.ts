@@ -5,10 +5,12 @@ interface Position extends Data {
     y: Number
 }
 
+//The idea of mediator is to notify compounded components
 interface Mediator {
     notify(event: string): void;
 }
 
+//The interface implementation requires Mediator components on attribute
 class KalistaSentinelMediator implements Mediator {
     private kalista: Kalista;
     private sentinel: Sentinel;
@@ -45,6 +47,8 @@ class KalistaSentinelMediator implements Mediator {
     }
 }
 
+//The components have its field to bound with Mediator.
+//When we want to extend them, the instances are communication through the same Mediator
 class Kalista {
     private sentinelMediator: KalistaSentinelMediator|undefined;
 

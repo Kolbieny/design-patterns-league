@@ -1,9 +1,13 @@
+//Flyweight interface contains declaration of unique values for each instance.
+//The clue is to store here low memory-demanding data.
 interface JungleMonsterType {
     side: string;
     health: Number;
     damage: Number;
 }
 
+
+//Flyweight uses the interface (static data set) in constructor
 class JungleMonsterFlyweight {
     private readonly jungleMonsterType: JungleMonsterType;
 
@@ -25,7 +29,7 @@ class JungleMonsterFlyweight {
     }
 }
 
-//Singleton factory
+//Flyweight factory is also a Singleton factory
 class JungleMonsterFactory {
     private static instance: JungleMonsterFactory;
 
@@ -60,6 +64,8 @@ class JungleMonsterFactory {
     }
 }
 
+//Context object is focused on state.
+//It is also the one that stores "type" (Flyweight)
 class JungleMonster {
     private readonly x: Number;
     private readonly y: Number;

@@ -1,3 +1,4 @@
+//Builder describes set of steps to product a product
 interface ItemBuilder {
     produceItem1(): void
     produceItem2(): void
@@ -7,6 +8,7 @@ interface ItemBuilder {
 class BlackCleaverBuilder implements ItemBuilder {
     private item!: BlackCleaver;
 
+    //New builder instance should contain empty product (object)
     constructor() {
         this.reset();
     }
@@ -27,6 +29,8 @@ class BlackCleaverBuilder implements ItemBuilder {
         this.item.parts.push('Gem');
     }
 
+    //Builder instances may use methods different from interface.
+    //It is common to reset Builder after getting product, but not necessary
     public getItem(): BlackCleaver {
         const result = this.item;
         this.reset();
@@ -41,6 +45,8 @@ class BlackCleaver {
     }
 }
 
+//Director is responsible for describing steps of product creation by Builder.
+//Director contains the Builder interface that allows him to switch between Builder instances.
 class Player {
     private itemBuilder!: ItemBuilder;
 

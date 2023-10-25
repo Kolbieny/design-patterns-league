@@ -1,3 +1,5 @@
+//GUI-type class that cooperates with the service.
+//It can contain the interface-type service.
 class User {
     private readonly balance: number;
 
@@ -10,16 +12,21 @@ class User {
     }
 }
 
+//Common interface for the proxy its target class
 interface Shop {
     buy(): void;
 }
 
+//Class that needs to have a proxy
 class RiotPointsShop implements Shop {
     public buy(): void {
         console.log('Riot points has been bought');
     }
 }
 
+//Proxy extends methods from interface with its own implementation.
+//In case of extending 'final' classes, proxy uses them as a service.
+//Then it may balance between extending and getting resources from the extended class.
 class RiotPointsShopProxy implements Shop {
     private riotPointsShop: RiotPointsShop;
     private user: User;

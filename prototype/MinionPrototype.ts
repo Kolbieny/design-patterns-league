@@ -17,6 +17,9 @@ class Health {
 
 }
 
+//Prototype provides cloning method to duplicate its instance to new object
+//Class which can extend the prototype may use in constructor a prototype instance.
+//It can be cloned then through constructor
 class MinionPrototype {
     public id: Number;
     public health: Health;
@@ -41,12 +44,10 @@ class MinionPrototype {
 }
 
 function main() {
-    const minionOne = new MinionPrototype();
-    const minionTwo = minionOne.clone();
+    const minion = new MinionPrototype();
+    const minionClone = minion.clone();
 
-    console.log('Is an ID equal: ' + (minionOne.id === minionTwo.id))
-    console.log('Is an health equal: ' + (minionOne.health.amount === minionTwo.health.amount))
-    console.log('Is an Onwer equal: ' + (minionOne.weapon.owner === minionTwo.weapon.owner))
+    console.log('Are minions equal in memory: ' + (minion === minionClone))
 }
 
 main();

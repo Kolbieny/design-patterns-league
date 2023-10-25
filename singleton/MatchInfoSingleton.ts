@@ -1,8 +1,11 @@
 class MatchInfoSingleton {
+    //Static instance stores Singleton itself
     private static instance: MatchInfoSingleton;
 
+    //Constructor should always be private to prevent creating a new instance
     private constructor() {}
 
+    //New instance is created only once.
     public static getInstance(): MatchInfoSingleton {
         if(!MatchInfoSingleton.instance) {
             MatchInfoSingleton.instance = new MatchInfoSingleton();
